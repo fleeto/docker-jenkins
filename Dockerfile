@@ -9,6 +9,5 @@ RUN chmod 644 /opt/jenkins.war
 ENV JENKINS_HOME="/jenkins" \
 TIMEZONE="Asia/Shanghai"
 
-ENTRYPOINT ["run.sh"]
 EXPOSE 8080
-CMD [""]
+ENTRYPOINT ["run.sh"]
