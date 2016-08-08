@@ -11,5 +11,4 @@ mv apache-maven-3.3.9 /usr/local/share/maven
 rm apache-maven-3.3.9-bin.tar.gz
 
 ln -s /usr/local/share/maven/bin/* /usr/local/bin
-mkdir -p /conf/maven
-mkdir -p /conf/kube
+mkdir -p /data/jenkins
