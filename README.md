@@ -1,6 +1,6 @@
 # docker-jenkins
 
-> docker pull dustise/jenkins
+`docker pull dustise/jenkins`
 
 Added something into it.
 Try to follow the latest version of jenkins.
@@ -15,10 +15,14 @@ Try to follow the latest version of jenkins.
 
 ## Volumes
 
-- `/kenkins`: Jenkins home
+- `/jenkins`: Jenkins home
 - `/conf/kube`: copy your kube config here.
 - `/conf/maven`: Anything in it will be copied (**OVERWRITE**) into /usr/local/share/maven/conf,
 
 ## Ports
 
 - 8080: Jenkins
+
+## Env
+
+- `JAVA_HOME`: `/etc/alternatives/java_sdk_1.8.0`
