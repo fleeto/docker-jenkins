@@ -1,5 +1,5 @@
 #!/bin/sh
 rm -f /etc/localtime
 ln -s "/usr/share/zoneinfo/$TIMEZONE" /etc/localtime
-
-java -jar /opt/jenkins.war
+cp -Rf /conf/maven/* /usr/local/share/maven/conf
+java -jar /usr/local/share/jenkins.jar

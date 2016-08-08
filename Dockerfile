@@ -1,12 +1,13 @@
 FROM centos:7
-RUN yum -y update && \
-    yum install -y --nogpgcheck java-1.8.0-openjdk-devel git subversion kubernetes-client
-RUN yum clean all
-ADD http://mirrors.jenkins-ci.org/war/latest/jenkins.war /opt/jenkins.war
 COPY run.sh /usr/local/bin
-RUN chmod 644 /opt/jenkins.war
+COPY prepare.sh /usr/local/bin
+
 ENV JENKINS_HOME="/jenkins" \
-TIMEZONE="Asia/Shanghai"
+TIMEZONE="Asia/Shanghai" \
+JAVA_HOME="/etc/alternatives/java_sdk_1.8.0"
+
+RUN prepare.sh
 
 EXPOSE 8080
+VOLUME ["/jenkins", "/conf/maven", "/conf/kube"]
 CMD ["run.sh"]
