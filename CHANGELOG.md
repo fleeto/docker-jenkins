@@ -1,6 +1,12 @@
 # CHANGELOG
 
 
+## 08.15.2016(2.7.2)
+
+- Changed
+  - Volumes
+  - Jenkins 2.7.2 LTS
+
 ## 07.05.2016(v0.6)
 
 - Added: Docker Client

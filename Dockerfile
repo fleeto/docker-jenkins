@@ -9,5 +9,5 @@ JAVA_HOME="/etc/alternatives/java_sdk_1.8.0"
 RUN prepare.sh
 
 EXPOSE 8080
-VOLUME ["/data"]
+VOLUME ["/data/jenkins", "/data/maven"]
 CMD ["run.sh"]
