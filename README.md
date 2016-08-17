@@ -15,7 +15,6 @@ Try to follow the latest version of jenkins.
 
 ## Volumes
 
-- `/data`
 - `/data/jenkins`: Jenkins home
 - `/data/kube`: copy your kube config here.
 - `/data/maven`: Anything in it will be copied (**OVERWRITE**) into /usr/local/share/maven/conf,

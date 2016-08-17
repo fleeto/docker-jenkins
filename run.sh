@@ -5,4 +5,4 @@ if [ -d "/data/maven" ]; then
   cp -Rf /data/maven/* /usr/local/share/maven/conf
 fi
 
-java -jar /usr/local/share/jenkins.jar
+java -jar /usr/share/jenkins.war
