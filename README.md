@@ -3,21 +3,23 @@
 `docker pull dustise/jenkins`
 
 Added something into it.
-Try to follow the latest version of jenkins.
+Try to follow the latest LTS version of jenkins.
 
 ## Include
 
-- CentOS 7
-- Open JDK 1.8.0
-- Jenkins 2.17
+- Alpine Linux
+- Oracle JDK 8u102
+- Jenkins 2.7.2
 - Maven 3.3
-- kubectl
+- Kubectl 1.3.5
+- Sonar Scanner 2.6.1
 
 ## Volumes
 
 - `/data/jenkins`: Jenkins home
-- `/data/kube`: copy your kube config here.
-- `/data/maven`: Anything in it will be copied (**OVERWRITE**) into /usr/local/share/maven/conf,
+- `/data/kube`: you can copy your kube config here.
+- `/data/maven/conf`: Anything in it will be copied (**OVERWRITE**) into /usr/local/share/maven/conf,
+- `/data/sonar/conf`: Anything in it will be copied (**OVERWRITE**) into /usr/local/share/sonar/conf,
 
 ## Ports
 
@@ -25,4 +27,6 @@ Try to follow the latest version of jenkins.
 
 ## Env
 
-- `JAVA_HOME`: `/etc/alternatives/java_sdk_1.8.0`
+- `JAVA_HOME`: `/usr/lib/java`
+- `MAVEN_HOME`: `/usr/local/share/maven`
+- `SONAR_HOME`: `/usr/local/share/sonar`
