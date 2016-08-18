@@ -20,6 +20,24 @@ unzip sonar-scanner-$SONAR_SCANNER_VER.zip
 mv sonar-scanner-$SONAR_SCANNER_VER $SONAR_HOME
 rm sonar-scanner-$SONAR_SCANNER_VER.zip
 
+apk add --update pip postgresql-dev gcc python-dev musl-dev
+pip install decorator
+pip install Django
+pip install django-filter
+pip install djangorestframework
+pip install docutils
+pip install Markdown
+pip install psycopg2
+pip install PyMySQL
+pip install requests
+pip install robotframework
+pip install robotframework-databaselibrary
+pip install robotframework-ftplibrary
+pip install robotframework-requests
+pip install robotframework-ride
+pip install robotframework-selenium2library
+pip install selenium
+
 ln -s /usr/share/maven/bin/* /usr/local/bin
 mkdir -p /data/jenkins
 mkdir -p /data/maven
