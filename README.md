@@ -13,6 +13,7 @@ Try to follow the latest LTS version of jenkins.
 - Maven 3.3
 - Kubectl 1.3.5
 - Sonar Scanner 2.6.1
+- Robot Framework
 
 ## Volumes
 
@@ -20,6 +21,7 @@ Try to follow the latest LTS version of jenkins.
 - `/data/kube`: you can copy your kube config here.
 - `/data/maven/conf`: Anything in it will be copied (**OVERWRITE**) into /usr/local/share/maven/conf,
 - `/data/sonar/conf`: Anything in it will be copied (**OVERWRITE**) into /usr/local/share/sonar/conf,
+- `/data/robot`: Result here
 
 ## Ports
 
