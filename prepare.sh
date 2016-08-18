@@ -20,7 +20,7 @@ unzip sonar-scanner-$SONAR_SCANNER_VER.zip
 mv sonar-scanner-$SONAR_SCANNER_VER $SONAR_HOME
 rm sonar-scanner-$SONAR_SCANNER_VER.zip
 
-apk add --update pip postgresql-dev gcc python-dev musl-dev
+apk add --update py-pip postgresql-dev gcc python-dev musl-dev
 pip install decorator
 pip install Django
 pip install django-filter
