@@ -36,7 +36,6 @@ pip install robotframework-ftplibrary
 pip install robotframework-requests
 pip install robotframework-ride
 pip install robotframework-selenium2library
-pip install selenium
 
 ln -s /usr/share/maven/bin/* /usr/local/bin
 mkdir -p /data/jenkins
