@@ -1,5 +1,18 @@
 #!/bin/sh
-apk add --update git subversion curl
+
+#PREPARE
+#Linux Version
+SIG=`cat /etc/*release | grep  ^NAME | cut -c7`
+
+# Alpine
+if [ $SIG = "A" ]; then
+  apk add --update git subversion curl
+fi
+
+if [ "$SIG" = "U" ]; then
+  apt-get install ca-certificates curl git subversion\
+  -y --no-install-recommends
+fi
 
 curl -L -o /usr/share/jenkins.war \
 http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war
@@ -20,7 +33,16 @@ unzip sonar-scanner-$SONAR_SCANNER_VER.zip
 mv sonar-scanner-$SONAR_SCANNER_VER $SONAR_HOME
 rm sonar-scanner-$SONAR_SCANNER_VER.zip
 
-apk add --update py-pip postgresql-dev gcc python-dev musl-dev
+if [ $SIG = "A" ]; then
+  apk add --update py-pip postgresql-dev gcc python-dev musl-dev
+fi
+
+if [ "$SIG" = "U" ]; then
+  apt-get install python-pip python-setuptools libpq-dev python-dev gcc \
+  -y --no-install-recommends
+  pip install --upgrade pip
+fi
+
 pip install decorator
 pip install Django
 pip install django-filter
@@ -43,4 +65,10 @@ mkdir -p /data/maven
 mkdir -p /data/kube
 mkdir -p /data/sonar
 
-rm -rf /var/cache/apk/*
+if [ $SIG = "A" ]; then
+  rm -rf /var/cache/apk/*
+fi
+
+if [ $SIG = "U"]; then
+  rm -rf /var/lib/apt/lists/*
+fi
