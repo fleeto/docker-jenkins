@@ -10,7 +10,8 @@ if [ $SIG = "A" ]; then
 fi
 
 if [ "$SIG" = "U" ]; then
-  apt-get install ca-certificates curl git subversion\
+  export DEBIAN_FRONTEND="noninteractive"
+  apt-get install ca-certificates curl git subversion unzip\
   -y --no-install-recommends
 fi
 
@@ -43,21 +44,12 @@ if [ "$SIG" = "U" ]; then
   pip install --upgrade pip
 fi
 
-pip install decorator
-pip install Django
-pip install django-filter
-pip install djangorestframework
-pip install docutils
-pip install Markdown
-pip install psycopg2
-pip install PyMySQL
-pip install requests
-pip install robotframework
-pip install robotframework-databaselibrary
-pip install robotframework-ftplibrary
-pip install robotframework-requests
-pip install robotframework-ride
-pip install robotframework-selenium2library
+pip install --no-cache-dir decorator Django django-filter djangorestframework docutils \
+Markdown psycopg2 PyMySQL requests robotframework \
+robotframework-databaselibrary robotframework-ftplibrary \
+robotframework-requests robotframework-ride \
+robotframework-selenium2library
+
 
 ln -s /usr/share/maven/bin/* /usr/local/bin
 mkdir -p /data/jenkins
