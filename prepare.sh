@@ -11,6 +11,8 @@ fi
 
 if [ "$SIG" = "U" ]; then
   export DEBIAN_FRONTEND="noninteractive"
+  apt-get update
+  apt-get -y upgrade
   apt-get install ca-certificates curl git subversion unzip\
   -y --no-install-recommends
 fi
