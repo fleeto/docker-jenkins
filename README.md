@@ -9,9 +9,9 @@ Try to follow the latest LTS version of jenkins.
 
 - Alpine Linux
 - Oracle JDK 8u102
-- Jenkins 2.7.2
+- Jenkins 2.7.4
 - Maven 3.3
-- Kubectl 1.3.5
+- Kubectl 1.3.6
 - Sonar Scanner 2.6.1
 - Robot Framework
 

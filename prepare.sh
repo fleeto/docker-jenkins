@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -xe
+
 #PREPARE
 #Linux Version
 SIG=`cat /etc/*release | grep  ^NAME | cut -c7`
