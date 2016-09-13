@@ -8,14 +8,21 @@ SIG=`cat /etc/*release | grep  ^NAME | cut -c7`
 
 # Alpine
 if [ $SIG = "A" ]; then
-  apk add --update git subversion curl
+  apk update
+  apk add --update git subversion curl docker
 fi
 
+# Ubuntu
 if [ "$SIG" = "U" ]; then
   export DEBIAN_FRONTEND="noninteractive"
+  apt-get install -y apt-transport-https ca-certificates
+  apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+  echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" > /etc/apt/sources.list.d/docker.list
+
   apt-get update
   apt-get -y upgrade
-  apt-get install ca-certificates curl git subversion unzip\
+  apt-get install -y ca-certificates curl git subversion unzip\
+  docker-engine \
   -y --no-install-recommends
 fi
 
@@ -54,17 +61,20 @@ robotframework-databaselibrary robotframework-ftplibrary \
 robotframework-requests robotframework-ride \
 robotframework-selenium2library
 
-
 ln -s /usr/share/maven/bin/* /usr/local/bin
 mkdir -p /data/jenkins
 mkdir -p /data/maven
 mkdir -p /data/kube
 mkdir -p /data/sonar
 
-if [ $SIG = "A" ]; then
+if [ "$SIG" = "A" ]; then
+  apk del --purge postgresql-dev gcc python-dev musl-dev
   rm -rf /var/cache/apk/*
+  rm -rf /tmp/apk
 fi
 
-if [ $SIG = "U"]; then
+if [ "$SIG" = "U" ]; then
+  apt-get -y purge libpq-dev python-dev gcc unzip
+  apt-get -y autoremove
   rm -rf /var/lib/apt/lists/*
 fi
