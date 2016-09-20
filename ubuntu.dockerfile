@@ -7,6 +7,8 @@ SONAR_HOME="/usr/local/share/sonar" \
 MAVEN_VER="3.3.9" \
 SONAR_SCANNER_VER="2.7" \
 KUBECTL_VER="1.3.6" \
+SLAVE_VER="2.9" \
+JENKINS_MODE="MASTER" \
 TIMEZONE="Asia/Shanghai"
 RUN prepare.sh
 EXPOSE 8080

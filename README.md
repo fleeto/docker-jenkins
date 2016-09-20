@@ -3,7 +3,7 @@
 `docker pull dustise/jenkins`
 
 Added something into it.
-Try to follow the latest LTS version of jenkins.
+Following the latest LTS version of jenkins.
 
 ## Include
 
@@ -14,13 +14,14 @@ Try to follow the latest LTS version of jenkins.
 - Kubectl 1.3.6
 - Sonar Scanner 2.7
 - Robot Framework
+- Jenkins Slave 2.9
 
 ## Volumes
 
 - `/data/jenkins`: Jenkins home
 - `/data/kube`: you can copy your kube config here.
-- `/data/maven/conf`: Anything in it will be copied (**OVERWRITE**) into /usr/local/share/maven/conf,
-- `/data/sonar/conf`: Anything in it will be copied (**OVERWRITE**) into /usr/local/share/sonar/conf,
+- `/data/maven`: Anything in `/data/maven/conf` will be copied (**OVERWRITE**) into /usr/local/share/maven/conf,
+- `/data/sonar`: Anything in `/data/maven/conf` will be copied (**OVERWRITE**) into /usr/local/share/sonar/conf,
 - `/data/robot`: Result here
 
 ## Ports
@@ -32,3 +33,4 @@ Try to follow the latest LTS version of jenkins.
 - `JAVA_HOME`: `/usr/lib/java`
 - `MAVEN_HOME`: `/usr/local/share/maven`
 - `SONAR_HOME`: `/usr/local/share/sonar`
+- `JENKINS_MODE`: "MASTER"(default) or "SLAVE"

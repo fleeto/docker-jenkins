@@ -29,6 +29,9 @@ fi
 curl -L -o /usr/share/jenkins.war \
 http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war
 
+curl -L -o /usr/share/slave.jar \
+https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/${SLAVE_VER}/remoting-${SLAVE_VER}.jar
+
 curl -L -o apache-maven-3.3.9-bin.tar.gz \
 http://www-eu.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-$MAVEN_VER-bin.tar.gz
 tar xf apache-maven-$MAVEN_VER-bin.tar.gz

@@ -1,6 +1,12 @@
 # CHANGELOG
 
 
+## 09.20.2016(2.7.4.3)
+
+- Added
+  - Jenkins slave
+
+
 ## 08.18.2016(2.7.2.2)
 
 - Added
