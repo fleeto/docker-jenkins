@@ -12,7 +12,7 @@ Following the latest LTS version of jenkins.
 - Jenkins 2.7.4
 - Maven 3.3.9
 - Kubectl 1.3.6
-- Sonar Scanner 2.7
+- Sonar Scanner 2.8
 - Robot Framework
 - Jenkins Slave 2.9
 
