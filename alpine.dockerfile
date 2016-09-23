@@ -1,4 +1,4 @@
-FROM dustise/oracle-jdk:alpine-jdk-0.7.2
+FROM dustise/oracle-jdk:alpine-jdk-0.7.3
 COPY run.sh /usr/local/bin
 COPY prepare.sh /usr/local/bin
 ENV JENKINS_HOME="/data/jenkins" \
