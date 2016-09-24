@@ -4,6 +4,7 @@
 
 Added something into it.
 Following the latest LTS version of jenkins.
+Support both Master or Slave mode.
 
 ## Include
 
@@ -15,6 +16,7 @@ Following the latest LTS version of jenkins.
 - Sonar Scanner 2.8
 - Robot Framework
 - Jenkins Slave 2.9
+- Docker 1.12.1
 
 ## Volumes
 
@@ -30,7 +32,11 @@ Following the latest LTS version of jenkins.
 
 ## Env
 
-- `JAVA_HOME`: `/usr/lib/java`
-- `MAVEN_HOME`: `/usr/local/share/maven`
-- `SONAR_HOME`: `/usr/local/share/sonar`
-- `JENKINS_MODE`: "MASTER"(default) or "SLAVE"
+|Name|Default Value|Comment|
+|---|---|---|
+|`JAVA_HOME`|`/usr/lib/java`||
+|`TIMEZONE`|`Asia/Shanghai`|Will change the system settings, and Jenkins will use it when start up. |
+|`JENKINS_MODE`|`MASTER`|`MASTER` or `SLAVE`|
+|`MAVEN_HOME`|`/usr/local/share/maven`||
+|`SONAR_HOME`|`/usr/local/share/sonar`||
+|`JENKINS_HOME`|`/data/jenkins`||
