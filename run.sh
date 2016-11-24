@@ -10,7 +10,7 @@ if [ -d "/data/sonar/conf" ]; then
 fi
 
 if [ $JENKINS_MODE = "MASTER" ]; then
-  java -jar -Duser.timezone=$TIMEZONE  /usr/share/jenkins.war
+  java -jar -Duser.timezone=$TIMEZONE -Dhudson.model.DirectoryBrowserSupport.CSP=  /usr/share/jenkins.war
 fi
 if [ $JENKINS_MODE = "SLAVE" ]; then
   MASTER_URL="-url $JENKINS_URL"
