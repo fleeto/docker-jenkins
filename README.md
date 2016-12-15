@@ -9,21 +9,24 @@ Support both Master or Slave mode.
 ## Include
 
 - Alpine Linux
-- Oracle JDK 8u102
-- Jenkins 2.7.4
+- Oracle JDK 8u112
+- Jenkins 2.19.4
 - Maven 3.3.9
-- Kubectl 1.3.6
+- Kubectl 1.4.5
 - Sonar Scanner 2.8
 - Robot Framework
 - Jenkins Slave 2.9
-- Docker 1.12.1
 
 ## Volumes
 
 - `/data/jenkins`: Jenkins home
+
 - `/data/kube`: you can copy your kube config here.
+
 - `/data/maven`: Anything in `/data/maven/conf` will be copied (**OVERWRITE**) into /usr/local/share/maven/conf,
+
 - `/data/sonar`: Anything in `/data/maven/conf` will be copied (**OVERWRITE**) into /usr/local/share/sonar/conf,
+
 - `/data/robot`: Result here
 
 ## Ports

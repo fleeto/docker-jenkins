@@ -1,4 +1,4 @@
-FROM dustise/oracle-jdk:ubuntu-jdk-0.7.3
+FROM dustise/oracle-jdk:ubuntu-jdk-0.7.4
 COPY run.sh /usr/local/bin
 COPY prepare.sh /usr/local/bin
 ENV JENKINS_HOME="/data/jenkins" \
@@ -6,7 +6,7 @@ MAVEN_HOME="/usr/local/share/maven" \
 SONAR_HOME="/usr/local/share/sonar" \
 MAVEN_VER="3.3.9" \
 SONAR_SCANNER_VER="2.8" \
-KUBECTL_VER="1.3.6" \
+KUBECTL_VER="1.4.5" \
 SLAVE_VER="2.9" \
 JENKINS_MODE="MASTER" \
 TIMEZONE="Asia/Shanghai"

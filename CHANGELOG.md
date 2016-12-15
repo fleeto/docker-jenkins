@@ -1,11 +1,15 @@
 # CHANGELOG
 
+## 12.15.2016 (2.19.4)
+
+- Modified:
+  - Upgrade base image.
+  - Kubectl to 1.4.5
 
 ## 09.20.2016(2.7.4.3)
 
 - Added
   - Jenkins slave
-
 
 ## 08.18.2016(2.7.2.2)
 
