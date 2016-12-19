@@ -19,12 +19,10 @@ if [ "$SIG" = "U" ]; then
   apt-get -y upgrade
   apt-get install -y apt-transport-https ca-certificates
   apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
-  echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" > /etc/apt/sources.list.d/docker.list
 
   apt-get update
   apt-get -y upgrade
-  apt-get install -y curl git subversion unzip\
-  docker-engine \
+  apt-get install -y curl git subversion unzip \
   -y --no-install-recommends
 fi
 
@@ -55,9 +53,11 @@ if [ $SIG = "A" ]; then
 fi
 
 if [ "$SIG" = "U" ]; then
-  apt-get install python-pip python-setuptools libpq-dev python-dev gcc \
+  apt-get install python-pip python-setuptools libpq-dev python-dev gcc xvfb firefox \
   -y --no-install-recommends
   pip install --upgrade pip
+  curl -L -o /tmp/geckodriver.tar.gz https://github.com/mozilla/geckodriver/releases/download/v0.11.1/geckodriver-v0.11.1-linux64.tar.gz
+  tar xf /tmp/geckodriver.tar.gz --directory=/usr/local/bin
 fi
 
 pip install --no-cache-dir decorator Django django-filter djangorestframework docutils \
