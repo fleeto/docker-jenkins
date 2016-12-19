@@ -58,6 +58,7 @@ if [ "$SIG" = "U" ]; then
   pip install --upgrade pip
   curl -L -o /tmp/geckodriver.tar.gz https://github.com/mozilla/geckodriver/releases/download/v0.11.1/geckodriver-v0.11.1-linux64.tar.gz
   tar xf /tmp/geckodriver.tar.gz --directory=/usr/local/bin
+  rm  /tmp/geckodriver.tar.gz
 fi
 
 pip install --no-cache-dir decorator Django django-filter djangorestframework docutils \
