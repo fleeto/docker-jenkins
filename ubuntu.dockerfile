@@ -1,4 +1,4 @@
-FROM dustise/oracle-jdk:ubuntu-jdk-0.7.4
+FROM dustise/oracle-jdk:ubuntu-jdk-0.8.3
 COPY run.sh /usr/local/bin
 COPY prepare.sh /usr/local/bin
 ENV JENKINS_HOME="/data/jenkins" \
