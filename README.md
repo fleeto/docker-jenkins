@@ -9,10 +9,10 @@ Support both Master or Slave mode.
 ## Include
 
 - Alpine Linux
-- Oracle JDK 8u112
-- Jenkins 2.19.4
+- Oracle JDK 8u121
+- Jenkins 2.32.3
 - Maven 3.3.9
-- Kubectl 1.4.5
+- Kubectl 1.5.4
 - Sonar Scanner 2.8
 - Robot Framework
 - Jenkins Slave 2.9

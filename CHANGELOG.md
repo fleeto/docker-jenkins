@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 3.15.2017 (2.32.3)
+
+- Modified:
+  - Upgrade base image.
+  - Kubectl to 1.5.4
+
 ## 12.15.2016 (2.19.4)
 
 - Modified:
