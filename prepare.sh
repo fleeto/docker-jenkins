@@ -9,7 +9,7 @@ SIG=`cat /etc/*release | grep  ^NAME | cut -c7`
 # Alpine
 if [ $SIG = "A" ]; then
   apk update
-  apk add --update git subversion curl docker
+  apk add --update git subversion curl nodejs-npm ansible
 fi
 
 # Ubuntu
@@ -17,7 +17,7 @@ if [ "$SIG" = "U" ]; then
   export DEBIAN_FRONTEND="noninteractive"
   apt-get update
   apt-get -y upgrade
-  apt-get install -y apt-transport-https ca-certificates
+  apt-get install -y apt-transport-https ca-certificates npm ansible
   apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
 
   apt-get update
