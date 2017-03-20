@@ -16,6 +16,8 @@ Support both Master or Slave mode.
 - Sonar Scanner 2.8
 - Robot Framework
 - Jenkins Slave 2.9
+- Ansible
+- Nodejs-npm
 
 ## Volumes
 
