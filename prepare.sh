@@ -9,7 +9,7 @@ SIG=`cat /etc/*release | grep  ^NAME | cut -c7`
 # Alpine
 if [ $SIG = "A" ]; then
   apk update
-  apk add --update git subversion curl nodejs-npm ansible
+  apk add --update git subversion curl nodejs ansible
 fi
 
 # Ubuntu
