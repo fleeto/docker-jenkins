@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 4.14.2017 (2.46.1)
+
+- Modified:
+  - Kubectl to 1.6.0
+  - Skip Jenkins initialization
+  - Customizable config.xml
+
 ## 3.15.2017 (2.32.3)
 
 - Modified:

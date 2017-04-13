@@ -6,13 +6,9 @@ set -xe
 #Linux Version
 SIG=`cat /etc/*release | grep  ^NAME | cut -c7`
 
-mkdir -p /usr/share/jenkins
+mkdir -p /usr/share/jenkins/init.groovy.d
 
-cat << EOF > /usr/share/jenkins/init.user.groovy
-#!/bin/sh
-mkdir -p init.groovy.d
-
-cat << EOF > init.groovy.d/init.user.groovy
+cat << EOF > /usr/share/jenkins/init.groovy.d/init.user.groovy
 #!groovy
 
 import jenkins.model.*
@@ -44,19 +40,20 @@ if [ "$SIG" = "U" ]; then
   export DEBIAN_FRONTEND="noninteractive"
   apt-get update
   apt-get -y upgrade
-  apt-get install -y apt-transport-https ca-certificates npm ansible
+  apt-get install -y --no-install-recommends \
+    apt-transport-https ca-certificates npm ansible
   apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
 
   apt-get update
   apt-get -y upgrade
   apt-get install -y curl git subversion unzip \
-  -y --no-install-recommends
+    -y --no-install-recommends
 fi
 
 curl -L -o /usr/share/jenkins/jenkins.war \
 http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war
 
-curl -L -o /usr/share/slave.jar \
+curl -L -o /usr/share/jenkins/slave.jar \
 https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/${SLAVE_VER}/remoting-${SLAVE_VER}.jar
 
 curl -L -o apache-maven-3.3.9-bin.tar.gz \

@@ -18,7 +18,7 @@ Support both Master or Slave mode.
 - Oracle JDK 8u121
 - Jenkins 2.46.1
 - Maven 3.3.9
-- Kubectl 1.5.4
+- Kubectl 1.6.0
 - Sonar Scanner 2.8
 - Robot Framework
 - Jenkins Slave 2.9
