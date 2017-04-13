@@ -1,7 +1,7 @@
 FROM dustise/oracle-jdk:alpine-jdk-0.7.4
 COPY run.sh /usr/local/bin
 COPY prepare.sh /usr/local/bin
-COPY config.xml /usr/share/jenkins/config.xml
+COPY config.xml /usr/share/jenkins/config/config.xml
 ENV JENKINS_HOME="/data/jenkins" \
   MAVEN_HOME="/usr/local/share/maven" \
   SONAR_HOME="/usr/local/share/sonar" \
