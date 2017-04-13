@@ -27,7 +27,7 @@ Support both Master or Slave mode.
 
 ## Volumes
 
-- `/usr/share/jenkins/`: Volume for **initialization**:
+- `/usr/share/jenkins/config`: Volume for **initialization**:
 
   - Any `*.groovy` in it will be copied in to `$JENKINS_HOME/init.groovy.d/`
 

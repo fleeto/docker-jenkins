@@ -6,9 +6,9 @@ set -xe
 #Linux Version
 SIG=`cat /etc/*release | grep  ^NAME | cut -c7`
 
-mkdir -p /usr/share/jenkins/init.groovy.d
+mkdir -p /usr/share/jenkins/config
 
-cat << EOF > /usr/share/jenkins/init.groovy.d/init.user.groovy
+cat << EOF > /usr/share/jenkins/config/init.user.groovy
 #!groovy
 
 import jenkins.model.*

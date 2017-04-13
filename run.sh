@@ -13,8 +13,8 @@ if [ $JENKINS_MODE = "MASTER" ]; then
   if [ ! -f "${JENKINS_HOME}/jenkins.install.InstallUtil.lastExecVersion" ]; then
     echo "2.0" > "${JENKINS_HOME}/jenkins.install.InstallUtil.lastExecVersion"
     mkdir "${JENKINS_HOME}/init.groovy.d"
-    cp /usr/share/jenkins/*.groovy "${JENKINS_HOME}/init.groovy.d/"
-    cp /usr/share/jenkins/*.xml "${JENKINS_HOME}"
+    cp /usr/share/jenkins/config/*.groovy "${JENKINS_HOME}/init.groovy.d/"
+    cp /usr/share/jenkins/config/*.xml "${JENKINS_HOME}/"
   fi
   java -jar -Duser.timezone=$TIMEZONE \
     -Dhudson.model.DirectoryBrowserSupport.CSP= \
