@@ -32,7 +32,7 @@ EOF
 # Alpine
 if [ $SIG = "A" ]; then
   apk update
-  apk add --update git subversion curl nodejs ansible
+  apk add --update git subversion curl nodejs ansible bash
 fi
 
 # Ubuntu
@@ -104,7 +104,7 @@ if [ "$SIG" = "A" ]; then
 fi
 
 if [ "$SIG" = "U" ]; then
-  apt-get -y purge libpq-dev python-dev gcc unzip
+  apt-get -y purge libpq-dev python-dev gcc
   apt-get -y autoremove
   rm -rf /var/lib/apt/lists/*
 fi

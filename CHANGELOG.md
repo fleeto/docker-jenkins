@@ -6,6 +6,7 @@
   - Kubectl to 1.6.0
   - Skip Jenkins initialization
   - Customizable config.xml
+  - Install plugins and their dependencies
 
 ## 3.15.2017 (2.32.3)
 
