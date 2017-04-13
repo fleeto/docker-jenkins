@@ -2,7 +2,13 @@
 
 `docker pull dustise/jenkins`
 
-Added something into it.
+
+Code for adding first user, comes from project
+[issue](https://github.com/geerlingguy/ansible-role-jenkins/issues/50) of
+[geerlingguy](https://github.com/geerlingguy), thank you.
+
+
+Added some CI/CD related tools into the image.
 Following the latest LTS version of jenkins.
 Support both Master or Slave mode.
 
@@ -10,7 +16,7 @@ Support both Master or Slave mode.
 
 - Alpine Linux
 - Oracle JDK 8u121
-- Jenkins 2.32.3
+- Jenkins 2.46.1
 - Maven 3.3.9
 - Kubectl 1.5.4
 - Sonar Scanner 2.8
@@ -21,6 +27,12 @@ Support both Master or Slave mode.
 
 ## Volumes
 
+- `/usr/share/jenkins/`: Volume for **initialization**:
+
+  - Any `*.groovy` in it will be copied in to `$JENKINS_HOME/init.groovy.d/`
+
+  - Any `*.xml` in it will be copied in to `$JENKINS_HOME`
+
 - `/data/jenkins`: Jenkins home
 
 - `/data/kube`: you can copy your kube config here.
@@ -30,6 +42,7 @@ Support both Master or Slave mode.
 - `/data/sonar`: Anything in `/data/maven/conf` will be copied (**OVERWRITE**) into /usr/local/share/sonar/conf,
 
 - `/data/robot`: Result here
+
 
 ## Ports
 
@@ -45,3 +58,5 @@ Support both Master or Slave mode.
 |`MAVEN_HOME`|`/usr/local/share/maven`||
 |`SONAR_HOME`|`/usr/local/share/sonar`||
 |`JENKINS_HOME`|`/data/jenkins`||
+|`ADMIN_USER`|root||
+|`ADMIN_PASSWORD`|`abcd!@#$`|

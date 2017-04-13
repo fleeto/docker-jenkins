@@ -6,6 +6,33 @@ set -xe
 #Linux Version
 SIG=`cat /etc/*release | grep  ^NAME | cut -c7`
 
+mkdir -p /usr/share/jenkins
+
+cat << EOF > /usr/share/jenkins/init.user.groovy
+#!/bin/sh
+mkdir -p init.groovy.d
+
+cat << EOF > init.groovy.d/init.user.groovy
+#!groovy
+
+import jenkins.model.*
+import hudson.security.*
+
+def user = System.getenv('ADMIN_USER')
+def password = System.getenv('ADMIN_PASSWORD')
+
+def instance = Jenkins.getInstance()
+
+println "--> creating local user"
+
+def hudsonRealm = new HudsonPrivateSecurityRealm(false)
+hudsonRealm.createAccount(user,password)
+instance.setSecurityRealm(hudsonRealm)
+
+def strategy = new FullControlOnceLoggedInAuthorizationStrategy()
+instance.setAuthorizationStrategy(strategy)
+instance.save()
+EOF
 # Alpine
 if [ $SIG = "A" ]; then
   apk update
@@ -26,7 +53,7 @@ if [ "$SIG" = "U" ]; then
   -y --no-install-recommends
 fi
 
-curl -L -o /usr/share/jenkins.war \
+curl -L -o /usr/share/jenkins/jenkins.war \
 http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war
 
 curl -L -o /usr/share/slave.jar \
@@ -76,7 +103,7 @@ mkdir -p /data/sonar
 if [ "$SIG" = "A" ]; then
   apk del --purge postgresql-dev gcc python-dev musl-dev
   rm -rf /var/cache/apk/*
-  rm -rf /tmp/apk
+  rm -rf /tmp/*.apk
 fi
 
 if [ "$SIG" = "U" ]; then
