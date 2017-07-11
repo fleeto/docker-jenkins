@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 7.11.2017 (2.60.1)
+
+- Fixed:
+  - install-plugins now works.
+- Upgraded:
+  - JDK
+  - Jenkins
+  - Slave
+  - Sonar Scanner
+  - Kubectl
+  - Maven
+
 ## 4.14.2017 (2.46.1)
 
 - Modified:

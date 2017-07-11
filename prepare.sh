@@ -41,13 +41,8 @@ if [ "$SIG" = "U" ]; then
   apt-get update
   apt-get -y upgrade
   apt-get install -y --no-install-recommends \
-    apt-transport-https ca-certificates npm ansible
-  apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
-
-  apt-get update
-  apt-get -y upgrade
-  apt-get install -y curl git subversion unzip \
-    -y --no-install-recommends
+    apt-transport-https ca-certificates npm ansible \
+    curl git subversion unzip
 fi
 
 curl -L -o /usr/share/jenkins/jenkins.war \
@@ -56,8 +51,8 @@ http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war
 curl -L -o /usr/share/jenkins/slave.jar \
 https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/${SLAVE_VER}/remoting-${SLAVE_VER}.jar
 
-curl -L -o apache-maven-3.3.9-bin.tar.gz \
-http://www-eu.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-$MAVEN_VER-bin.tar.gz
+curl -L -o apache-maven-$MAVEN_VER-bin.tar.gz \
+http://www.apache.org/dist/maven/maven-3/$MAVEN_VER/binaries/apache-maven-$MAVEN_VER-bin.tar.gz
 tar xf apache-maven-$MAVEN_VER-bin.tar.gz
 mv apache-maven-$MAVEN_VER $MAVEN_HOME
 rm apache-maven-$MAVEN_VER-bin.tar.gz
@@ -67,7 +62,7 @@ https://storage.googleapis.com/kubernetes-release/release/v$KUBECTL_VER/bin/linu
 chmod a+x /usr/local/bin/kubectl
 
 curl -L -o sonar-scanner-$SONAR_SCANNER_VER.zip \
-https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-$SONAR_SCANNER_VER.zip
+https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$SONAR_SCANNER_VER.zip
 unzip sonar-scanner-$SONAR_SCANNER_VER.zip
 mv sonar-scanner-$SONAR_SCANNER_VER $SONAR_HOME
 rm sonar-scanner-$SONAR_SCANNER_VER.zip

@@ -9,6 +9,12 @@ if [ -d "/data/sonar/conf" ]; then
   cp -Rf /data/sonar/conf/* $SONAR_HOME/conf
 fi
 
+if [ -d "/plugins" ]; then
+  if ! [ -d "/data/jenkins/plugins" ]; then
+    cp -Rf /plugins /data/jenkins/
+  fi
+fi
+
 if [ $JENKINS_MODE = "MASTER" ]; then
   if [ ! -f "${JENKINS_HOME}/jenkins.install.InstallUtil.lastExecVersion" ]; then
     echo "2.0" > "${JENKINS_HOME}/jenkins.install.InstallUtil.lastExecVersion"
