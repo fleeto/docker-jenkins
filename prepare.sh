@@ -103,3 +103,6 @@ if [ "$SIG" = "U" ]; then
   apt-get -y autoremove
   rm -rf /var/lib/apt/lists/*
 fi
+
+install-plugins.sh blueocean
+
