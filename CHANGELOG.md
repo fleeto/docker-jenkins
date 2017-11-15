@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 11.15.2017 (2.73.3)
+
+- Upgraded:
+  - Jenkins
+  - Kubectl
+
 ## 7.11.2017 (2.60.1)
 
 - Fixed:
