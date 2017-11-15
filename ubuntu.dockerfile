@@ -7,7 +7,7 @@ COPY jenkins-support /usr/local/bin
 ENV JENKINS_HOME="/data/jenkins" \
   MAVEN_HOME="/usr/local/share/maven" \
   SONAR_HOME="/usr/local/share/sonar" \
-  MAVEN_VER="3.5.0" \
+  MAVEN_VER="3.5.2" \
   SONAR_SCANNER_VER="3.0.3.778" \
   KUBECTL_VER="1.7.10" \
   SLAVE_VER="3.9" \

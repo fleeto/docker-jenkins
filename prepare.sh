@@ -52,7 +52,7 @@ curl -L -o /usr/share/jenkins/slave.jar \
 https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/${SLAVE_VER}/remoting-${SLAVE_VER}.jar
 
 curl -L -o apache-maven-$MAVEN_VER-bin.tar.gz \
-http://www.apache.org/dist/maven/maven-3/$MAVEN_VER/binaries/apache-maven-$MAVEN_VER-bin.tar.gz
+http://apache.mirror.cdnetworks.com/maven/maven-3/$MAVEN_VER/binaries/apache-maven-$MAVEN_VER-bin.tar.gz
 tar xf apache-maven-$MAVEN_VER-bin.tar.gz
 mv apache-maven-$MAVEN_VER $MAVEN_HOME
 rm apache-maven-$MAVEN_VER-bin.tar.gz
@@ -105,4 +105,3 @@ if [ "$SIG" = "U" ]; then
 fi
 
 install-plugins.sh blueocean
-

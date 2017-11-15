@@ -60,7 +60,7 @@ RUN install-plugins.sh git
 - Alpine Linux
 - Oracle JDK 8u121
 - Jenkins 2.73.3
-- Maven 3.3.9
+- Maven 3.5.2
 - Kubectl 1.7.10
 - Sonar Scanner 2.8
 - Robot Framework

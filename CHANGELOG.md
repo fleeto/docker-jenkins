@@ -5,6 +5,7 @@
 - Upgraded:
   - Jenkins
   - Kubectl
+  - Maven
 
 ## 7.11.2017 (2.60.1)
 
