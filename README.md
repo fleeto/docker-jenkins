@@ -20,7 +20,6 @@ Code for adding first user, comes from project
 `install-plugins.sh` and `jenkins-support` copied from
 [Jenkins docker](https://github.com/jenkinsci/docker).
 
-
 一个定制化程度较高的 Jenkins 镜像，跳过了系统的缺省初始化过程，在使用中可以方便的加入自己的
 Groovy 初始化代码、设置初始用户，以及替换 config.xml。
 
@@ -29,7 +28,6 @@ Groovy 初始化代码、设置初始用户，以及替换 config.xml。
 另外还添加了一些 CI/CD 相关的工具。同时支持 Jenkins 的 Master 和 Slave 模式。
 
 镜像会不定期跟踪更新 Jenkins 的 LTS 版本。
-
 
 ## Run
 
@@ -54,19 +52,17 @@ RUN install-plugins.sh git
 
 ~~~
 
-
 ## Include
 
 - Alpine Linux
-- Oracle JDK 8u121
-- Jenkins 2.73.3
-- Maven 3.5.2
-- Kubectl 1.7.10
-- Sonar Scanner 2.8
+- Oracle JDK 8u171
+- Jenkins 2.107.3
+- Maven 3.5.3
+- Kubectl 1.10.2
+- Sonar Scanner 3.1.0.1141-linux
 - Robot Framework
-- Jenkins Slave 2.9
+- Jenkins Slave 3.9
 - Ansible
-- Nodejs-npm
 
 ## Volumes
 
@@ -85,7 +81,6 @@ RUN install-plugins.sh git
 - `/data/sonar`: Anything in `/data/maven/conf` will be copied (**OVERWRITE**) into /usr/local/share/sonar/conf,
 
 - `/data/robot`: Result here
-
 
 ## Ports
 

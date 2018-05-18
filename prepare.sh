@@ -32,7 +32,7 @@ EOF
 # Alpine
 if [ $SIG = "A" ]; then
   apk update
-  apk add --update git subversion curl nodejs ansible bash
+  apk add --update git subversion curl ansible bash
 fi
 
 # Ubuntu
@@ -41,31 +41,40 @@ if [ "$SIG" = "U" ]; then
   apt-get update
   apt-get -y upgrade
   apt-get install -y --no-install-recommends \
-    apt-transport-https ca-certificates npm ansible \
+    apt-transport-https ca-certificates ansible \
     curl git subversion unzip
 fi
 
-curl -L -o /usr/share/jenkins/jenkins.war \
-http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war
+curl -sSL -o /usr/share/jenkins/jenkins.war \
+http://mirrors.jenkins.io/war-stable/latest/jenkins.war
 
-curl -L -o /usr/share/jenkins/slave.jar \
-https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/${SLAVE_VER}/remoting-${SLAVE_VER}.jar
+curl -sSL -o /usr/share/jenkins/slave.jar \
+https://github.com/jenkinsci/remoting/archive/remoting-${SLAVE_VER}.tar.gz
 
-curl -L -o apache-maven-$MAVEN_VER-bin.tar.gz \
-http://apache.mirror.cdnetworks.com/maven/maven-3/$MAVEN_VER/binaries/apache-maven-$MAVEN_VER-bin.tar.gz
+curl -sSL -o apache-maven-$MAVEN_VER-bin.tar.gz \
+http://www-us.apache.org/dist/maven/maven-3/$MAVEN_VER/binaries/apache-maven-$MAVEN_VER-bin.tar.gz
 tar xf apache-maven-$MAVEN_VER-bin.tar.gz
 mv apache-maven-$MAVEN_VER $MAVEN_HOME
 rm apache-maven-$MAVEN_VER-bin.tar.gz
 
-curl -L -o /usr/local/bin/kubectl \
+curl -sSL -o /usr/local/bin/kubectl \
 https://storage.googleapis.com/kubernetes-release/release/v$KUBECTL_VER/bin/linux/amd64/kubectl
 chmod a+x /usr/local/bin/kubectl
 
-curl -L -o sonar-scanner-$SONAR_SCANNER_VER.zip \
+curl -sSL -o sonar-scanner-$SONAR_SCANNER_VER.zip \
 https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$SONAR_SCANNER_VER.zip
 unzip sonar-scanner-$SONAR_SCANNER_VER.zip
 mv sonar-scanner-$SONAR_SCANNER_VER $SONAR_HOME
 rm sonar-scanner-$SONAR_SCANNER_VER.zip
+
+curl -sSL -o /usr/local/bin/img \
+https://github.com/genuinetools/img/releases/download/v0.3.2/img-linux-amd64
+
+curl -sSL -o /usr/local/bin/runc \
+https://github.com/opencontainers/runc/releases/download/v1.0.0-rc5/runc.amd64
+
+chmod a+x /usr/local/bin/img
+chmod a+x /usr/local/bin/runc
 
 if [ $SIG = "A" ]; then
   apk add --update py-pip postgresql-dev gcc python-dev musl-dev
@@ -75,7 +84,7 @@ if [ "$SIG" = "U" ]; then
   apt-get install python-pip python-setuptools libpq-dev python-dev gcc xvfb firefox \
   -y --no-install-recommends
   pip install --upgrade pip
-  curl -L -o /tmp/geckodriver.tar.gz https://github.com/mozilla/geckodriver/releases/download/v0.11.1/geckodriver-v0.11.1-linux64.tar.gz
+  curl -sSL -o /tmp/geckodriver.tar.gz https://github.com/mozilla/geckodriver/releases/download/v0.11.1/geckodriver-v0.11.1-linux64.tar.gz
   tar xf /tmp/geckodriver.tar.gz --directory=/usr/local/bin
   rm  /tmp/geckodriver.tar.gz
 fi
@@ -104,4 +113,3 @@ if [ "$SIG" = "U" ]; then
   rm -rf /var/lib/apt/lists/*
 fi
 
-install-plugins.sh blueocean
