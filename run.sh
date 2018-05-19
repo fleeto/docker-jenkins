@@ -1,4 +1,5 @@
 #!/bin/sh
+set -xe
 rm -f /etc/localtime
 ln -s "/usr/share/zoneinfo/$TIMEZONE" /etc/localtime
 if [ -d "/data/maven/conf" ]; then
