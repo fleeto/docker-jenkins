@@ -49,7 +49,7 @@ curl -sSL -o /usr/share/jenkins/jenkins.war \
 http://mirrors.jenkins.io/war-stable/latest/jenkins.war
 
 curl -sSL -o /usr/share/jenkins/slave.jar \
-https://github.com/jenkinsci/remoting/archive/remoting-${SLAVE_VER}.tar.gz
+https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/${SLAVE_VER}/remoting-${SLAVE_VER}.jar
 
 curl -sSL -o apache-maven-$MAVEN_VER-bin.tar.gz \
 http://www-us.apache.org/dist/maven/maven-3/$MAVEN_VER/binaries/apache-maven-$MAVEN_VER-bin.tar.gz
