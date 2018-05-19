@@ -89,7 +89,7 @@ if [ "$SIG" = "U" ]; then
   rm  /tmp/geckodriver.tar.gz
 fi
 
-python pip install --no-cache-dir decorator Django django-filter djangorestframework docutils \
+pip install --no-cache-dir decorator Django django-filter djangorestframework docutils \
 Markdown psycopg2 PyMySQL requests robotframework \
 robotframework-databaselibrary robotframework-ftplibrary \
 robotframework-requests robotframework-ride \
